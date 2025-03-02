@@ -36,7 +36,6 @@ steps:
   - task: PublishBuildArtifacts@1
     inputs:
       PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-      ArtifactName: 'drop'
       publishLocation: 'Container'
 
   - script: |
@@ -49,4 +48,4 @@ steps:
       azureSubscription: 'Azure subscription 1(8c4146a7-6bd0-4009-92b7-66f34fd5d05f)'
       appType: 'webAppLinux'
       appName: 'Phytonapp'
-      package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
+      package: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
