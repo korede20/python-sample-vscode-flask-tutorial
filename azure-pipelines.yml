@@ -43,13 +43,10 @@ steps:
       pip install pytest pytest-azurepipelines
       pytest
     displayName: 'pytest'
-
-  - task: AzureRmWebAppDeployment@5
+    
+  - task: AzureWebApp@1
     inputs:
-      ConnectionType: 'AzureRM'
       azureSubscription: 'Azure subscription 1(8c4146a7-6bd0-4009-92b7-66f34fd5d05f)'
       appType: 'webAppLinux'
-      WebAppName: 'Phytonapp'
-      packageForLinux: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-      RuntimeStack: 'PYTHON:3.12'
-      DeploymentTypeLinux: 'zipDeploy'
+      appName: 'Phytonapp'
+      package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
