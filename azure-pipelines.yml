@@ -27,15 +27,15 @@ steps:
   - task: ArchiveFiles@2
     displayName: 'Archive files'
     inputs:
-      rootFolderOrFile: $(System.DefaultWorkingDirectory)
+      rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
       includeRootFolder: false
-      archiveType: zip
-      archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId)-$(python.version).zip
+      archiveType: 'zip'
+      archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
       replaceExistingArchive: true
 
   - task: PublishBuildArtifacts@1
     inputs:
-      PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-$(python.version).zip'
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
       ArtifactName: 'drop'
       publishLocation: 'Container'
 
@@ -50,6 +50,6 @@ steps:
       azureSubscription: 'Azure subscription 1(8c4146a7-6bd0-4009-92b7-66f34fd5d05f)'
       appType: 'webAppLinux'
       WebAppName: 'Phytonapp'
-      packageForLinux: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId)-$(python.version).zip'
+      packageForLinux: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
       RuntimeStack: 'PYTHON:3.12'
       DeploymentTypeLinux: 'zipDeploy'
