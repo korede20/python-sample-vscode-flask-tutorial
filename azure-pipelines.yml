@@ -50,6 +50,6 @@ steps:
       azureSubscription: 'Azure subscription 1(8c4146a7-6bd0-4009-92b7-66f34fd5d05f)'
       appType: 'webAppLinux'
       WebAppName: 'Phytonapp'
-      packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+      packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
       RuntimeStack: 'PYTHON:3.12'
       DeploymentTypeLinux: 'zipDeploy'
