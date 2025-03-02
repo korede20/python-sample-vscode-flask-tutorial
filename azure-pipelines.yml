@@ -52,4 +52,4 @@ steps:
       WebAppName: 'Phytonapp'
       packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
       RuntimeStack: 'PYTHON:3.12'
-      DeploymentTypeLinux: 'oneDeploy'
+      DeploymentTypeLinux: 'zipDeploy'
