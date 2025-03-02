@@ -38,6 +38,7 @@ steps:
       PathtoPublish: '$(Build.ArtifactStagingDirectory)'
       ArtifactName: 'drop'
       publishLocation: 'Container'
+      StoreAsTar: true
 
   - script: |
       pip install pytest pytest-azurepipelines
